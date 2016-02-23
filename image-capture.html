@@ -5,18 +5,27 @@
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script>
-
-jQuery(function($){$('.bodydiv2').html(''+(new Date()).getTime());});
+jQuery(function($){
+  
+});
 
 
 </script>
 </head>
 <body>
-<div class="bodydiv1"></div>
+<div class="bodydiv1">
+  <form>
+    <div class="status"></div>
+    <input type="file" name="file1" class="file1" id="file1"/>
+    <textarea class="button1click">
+        window.f1 = document.querySelector('.file1');
+        window.fr = new FileReader();
+        window.fr.readAsArrayBuffer(f1);
+    </textarea>
+    <button class="button1" onclick="eval(document.querySelector('.button1click').value)" 
+  </form>
+</div>
 <div class="bodydiv2"></div>
 <div class="bodydiv3"></div>
-<script>
-document.querySelector('.bodydiv1').innerHTML=''+((new Date()).getTime());
-</script>
 </body>
 </html>
