@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<title>html5 examples and tests</title>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+<script>
+
+jQuery(function($){$('.bodydiv2').html(''+(new Date()).getTime());});
+
+
+</script>
+</head>
+<body>
+<div class="bdw bodydiv1w">Loaded by script block below this tag: <span class="bodydiv1"></span></div>
+<div class="bdw bodydiv2w">Loaded by jQuery(function(){}) in head tag: <span class="bodydiv2"></span></div>
+<div class="bdw bodydiv3w"><span class="bodydiv3"></span></div>
+<script>
+document.querySelector('.bodydiv1').innerHTML=''+((new Date()).getTime());
+</script>
+<style>
+.bdw{margin:1em 1em 1em 1em;padding:1em 1em 1em 1em;border-radius:1em 1em 1em 1em;border:0.25em solid blue;background:#def;}
+</style>
+</body>
+</html>
