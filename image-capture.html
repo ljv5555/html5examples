@@ -5,6 +5,34 @@
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script>
+
+
+  window.loadFile=function(cssSelector,callbackFunction) {
+        var input, file, fr;
+
+        if (typeof window.FileReader !== 'function') {
+            alert("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.querySelector(cssSelector);
+        if (!input) {
+            alert("Um, couldn't find the fileinput element.");
+        }
+        else if (!input.files) {
+            alert("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            alert("Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = function(){callbackFunction(fr.result);};
+            fr.readBinaryString(file);
+        }
+    };
+    
 jQuery(function($){
   
   
@@ -12,69 +40,6 @@ jQuery(function($){
   
 });
 
-
-    function loadFile() {
-        var input, file, fr;
-
-        if (typeof window.FileReader !== 'function') {
-            bodyAppend("p", "The file API isn't supported on this browser yet.");
-            return;
-        }
-
-        input = document.querySelector('.file1');
-        if (!input) {
-            bodyAppend("p", "Um, couldn't find the fileinput element.");
-        }
-        else if (!input.files) {
-            bodyAppend("p", "This browser doesn't seem to support the `files` property of file inputs.");
-        }
-        else if (!input.files[0]) {
-            bodyAppend("p", "Please select a file before clicking 'Load'");
-        }
-        else {
-            file = input.files[0];
-            fr = new FileReader();
-            fr.onload = receivedText;
-            fr.readAsText(file);
-        }
-
-        function receivedText() {
-            showResult(fr, "Text");
-
-            fr = new FileReader();
-            fr.onload = receivedBinary;
-            fr.readAsBinaryString(file);
-        }
-
-        function receivedBinary() {
-            showResult(fr, "Binary");
-        }
-    }
-
-    function showResult(fr, label) {
-        var markup, result, n, aByte, byteStr;
-
-        markup = [];
-        result = fr.result;
-        for (n = 0; n < result.length; ++n) {
-            aByte = result.charCodeAt(n);
-            byteStr = aByte.toString(16);
-            if (byteStr.length < 2) {
-                byteStr = "0" + byteStr;
-            }
-            markup.push(byteStr);
-        }
-        bodyAppend("p", label + " (" + result.length + "):");
-        bodyAppend("pre", markup.join(" "));
-    }
-
-    function bodyAppend(tagName, innerHTML) {
-        var elm;
-
-        elm = document.createElement(tagName);
-        elm.innerHTML = innerHTML;
-        document.body.appendChild(elm);
-    }
 
 
 </script>
@@ -84,12 +49,12 @@ jQuery(function($){
   <form>
     <div class="status"></div>
     <input type="file" name="file1" class="file1" id="file1"/>
-    <textarea class="button1click">
+    <!--textarea class="button1click">
         window.f1 = document.querySelector('.file1');
         window.fr = new FileReader();
         window.fr.readAsArrayBuffer(f1);
-    </textarea>
-    <button class="button1" onclick="eval(document.querySelector('.button1click').value)" >eval</button>
+    </textarea-->
+    <button class="button1" onclick="window.loadFile('.file1',function(r){alert('r='+r);});" >load</button>
   </form>
 </div>
 <div class="bodydiv2"></div>
