@@ -8,7 +8,7 @@
 
   window.file2data = function(fileElement){
     var fr = new FileReader();
-    fr.onloadend=function(){$(fileElement).attr('data-filecontents',fr.response);}
+    fr.onloadend=function(){$(fileElement).attr('data-filecontents',fr.response);};
     fr.readAsBinaryString(fileElement.files[0]);
   };
 
@@ -65,7 +65,7 @@ jQuery(function($){
   </form>
 </div>
 <div class="bodydiv2">
-  <input type="file" onchange="window.file2data(this);"/>
+  <input type="file" id="file2" onchange="window.file2data(this);"/><input type="button" value="file2data" onclick="window.file2data(document.getElementById('file2'));"/>
 </div>
 <div class="bodydiv3"></div>
 </body>
