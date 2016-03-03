@@ -8,7 +8,7 @@
 
   window.file2data = function(fileElement){
     var fr = new FileReader();
-    fr.onloadend=function(){$(fileElement).attr('data-filecontents',fr.response);};
+    fr.onloadend=function(){$(fileElement).attr('data-filecontents',fr.result);};
     fr.readAsBinaryString(fileElement.files[0]);
   };
 
