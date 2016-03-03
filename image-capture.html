@@ -5,7 +5,9 @@
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script>
-
+/*
+var fr = new FileReader();fr.onloadend=function(){console.log('loading done.');console.log(fr.response);}; fr.readAsBinaryString(document.querySelectorAll('#file2')[0].files[0]);   document.getElementById('file2').parentElement.replaceChild(document.createElement('textarea'),document.getElementById('file2'));
+*/
   window.file2data = function(fileElement){
     var fr = new FileReader();
     fr.onloadend=function(){$(fileElement).attr('data-filecontents',fr.result);};
