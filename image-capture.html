@@ -6,6 +6,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script>
 
+  window.file2data = function(fileElement){
+    var fr = new FileReader();
+    fr.onloadend=function(){$(fileElement).attr('data-filecontents',fr.response);}
+    fr.readAsBinaryString(fileElement.files[0]);
+  };
+
 
   window.loadFile=function(cssSelector,callbackFunction) {
         var input, file, fr;
@@ -43,6 +49,7 @@ jQuery(function($){
 
 
 </script>
+<style>.bodydiv2{padding:1em 1em 1em 1em;margin:1em 1em 1em 1em;border-radius:1.2em 1.2em 1.2em 1.2em;border:1px solid blue;}</style>
 </head>
 <body>
 <div class="bodydiv1">
@@ -57,7 +64,9 @@ jQuery(function($){
     <button class="button1" onclick="window.loadFile('.file1',function(r){alert('r='+r);});" >load</button>
   </form>
 </div>
-<div class="bodydiv2"></div>
+<div class="bodydiv2">
+  <input type="file" onchange="window.file2data(this);"/>
+</div>
 <div class="bodydiv3"></div>
 </body>
 </html>
