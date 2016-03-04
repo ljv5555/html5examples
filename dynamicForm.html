@@ -4,7 +4,7 @@
   <style>
     body{font-family:arial;}
     body textarea{color:white;background:black;width:45%;height:200px;}
-    textarea, input, button, div{border-radius:12pt;font-family:courier new;border:1px solid #de4;border:1em 1em 1em 1em;padding:1em 1em 1em 1em;}
+    textarea, input, button, div, label{border-radius:12pt;font-family:courier new;border:1px solid #de4;border:1em 1em 1em 1em;padding:1em 1em 1em 1em;}
     .formdiv div{background:rgba(255,255,255,0.5);}
   </style>
 <title>html5 examples and tests</title>
@@ -26,7 +26,7 @@
         var n = JSON.parse(decodeURIComponent(pn2))[i];
         //var n2 = decodeURIComponent(n);
         var v = '';
-        rtn += '<div><label for="'+n+'"></label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
+        rtn += '<div><label for="'+n+'">'+n+'</label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
       } 
       rtn += "</form>";
       
