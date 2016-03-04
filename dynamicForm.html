@@ -14,8 +14,8 @@
   function getGetParameters(){return JSON.parse('{"'+location.search.substring(1).split('&').join('","').split('=').join('":"')+'"}');}
   function getUrlFromParameters(){
     var rtn = '';
-    var pn2 = getParameters()['parameterNames'];
-    var fa2 = getParameters()['formAction'];
+    var pn2 = getGetParameters()['parameterNames'];
+    var fa2 = getGetParameters()['formAction'];
 
     if(!pn2 || !fa2){alert('Error: Parameter "parameterNames" or parameter "formAction" is missing.');}
     else
