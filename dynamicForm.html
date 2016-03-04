@@ -24,6 +24,7 @@
       for(var i=0;i<JSON.parse(pn2).length;i++)
       {
         var n = JSON.parse(pn2)[i];
+        n = decodeURIComponent(n);
         var v = '';
         rtn += '<div><label for="'+n+'"></label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
       } 
