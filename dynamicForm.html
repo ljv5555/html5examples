@@ -21,10 +21,10 @@
     else
     {
       rtn+='<form action="'+fa2+'">';
-      for(var i=0;i<JSON.parse(pn2).length;i++)
+      for(var i=0;i<JSON.parse(decodeURIComponent(pn2)).length;i++)
       {
-        var n = JSON.parse(pn2)[i];
-        n = decodeURIComponent(n);
+        var n = JSON.parse(decodeURIComponent(pn2))[i];
+        //var n2 = decodeURIComponent(n);
         var v = '';
         rtn += '<div><label for="'+n+'"></label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
       } 
