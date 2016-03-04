@@ -8,6 +8,9 @@
 <title>html5 examples and tests</title>
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+<script>
+  function getGetParameters(){return JSON.parse('{"'+location.search.substring(1).split('&').join('","').split('=').join('":"')+'"}');}
+</script>
 </head>
 <body>
   <table class="bodytable">
