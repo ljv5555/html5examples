@@ -10,6 +10,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script>
   function getGetParameters(){return JSON.parse('{"'+location.search.substring(1).split('&').join('","').split('=').join('":"')+'"}');}
+  function getUrlFromParameters(){
+    var rtn = '';
+    var pn2 = getParameters()['parameterNames'];
+    var fa2 = getParameters()['formAction'];
+
+    if(!pn2 || !fa2){alert('Error: Parameter "parameterNames" or parameter "formAction" is missing.');}
+    else
+    {
+      rtn+='<form action="'+fa2+'">';
+      for(var i=0;i<JSON.parse(pn2).length;i++)
+      {
+        var n = JSON.parse(pn2)[i];
+        var v = '';
+        rtn += '<div><label for="'+n+'"></label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
+      } 
+      rtn += "</form>";
+      
+    }
+    
+    return rtn;
+  }
 </script>
 </head>
 <body>
