@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body{font-family:arial;}
+    body textarea{color:white;background:black;width:45%;height:200px;}
+  </style>
+<title>html5 examples and tests</title>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+</head>
+<body>
+  <table class="bodytable">
+    <tr>
+      <td>
+Input: <br><textarea id="ta_in" style="margin: 0px; width: 717px; height: 530px;"></textarea>
+</td>
+<td>
+Output (id="ta_out"): <br><textarea id="ta_out" style="margin: 0px; width: 735px; height: 537px;"></textarea>
+      </td>
+    </tr>
+    <tr><td><button type="button" onclick="eval(jQuery('#ta_in').val());">eval(jQuery('#ta_in').val())</button></td><td></td></tr>
+  </table>
+</body>
+</html>
