@@ -7,7 +7,7 @@
     textarea, input, button, div, label
     {
     }
-    body .bodydiv label, body .bodydiv div,body .bodydiv textarea
+    body .bodydiv .subbodydiv label, body .bodydiv  .subbodydiv div,body .bodydiv  .subbodydiv textarea
     {
       display:block;
       background:rgba(250,220,050,0.5);
@@ -45,7 +45,7 @@
         var n = JSON.parse(decodeURIComponent(pn2))[i];
         //var n2 = decodeURIComponent(n);
         var v = '';
-        rtn += '<div><label for="'+n+'">'+n+'</label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
+        rtn += '<div class="subbodydiv"><label for="'+n+'">'+n+'</label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
       } 
       rtn += "</form>";
       
