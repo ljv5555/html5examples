@@ -46,7 +46,7 @@
     if(!pn2 || !fa2){alert('Error: Parameter "parameterNames" or parameter "formAction" is missing.');}
     else
     {
-      rtn+='<form target="_blank" action="'+fa2+'"><input type="hidden" value="operation" name="append-row"/>';
+      rtn+='<form target="_blank" action="'+fa2+'"><input type="hidden" value="append-row" name="operation"/>';
       for(var i=0;i<JSON.parse(decodeURIComponent(pn2)).length;i++)
       {
         var n = JSON.parse(decodeURIComponent(pn2))[i];
