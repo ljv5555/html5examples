@@ -61,9 +61,16 @@
     
     return rtn;
   }
+  
+  window.file2data = function(fileElement){
+    var fr = new FileReader();
+    fr.onloadend=function(){$('#imagedata').val(fr.result);};
+    fr.readAsBinaryString($('#file1')[0].files[0]);
+  };
 </script>
 </head>
 <body>
+  <div><input type="file" accept="image/png" id="file1" onchange="window.file2data();"/></div>
   <div class="bodydiv"></div>
   
   <script>
