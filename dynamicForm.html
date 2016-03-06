@@ -44,15 +44,16 @@
     if(!pn2 || !fa2){alert('Error: Parameter "parameterNames" or parameter "formAction" is missing.');}
     else
     {
-      rtn+='<form action="'+fa2+'">';
+      rtn+='<form target="_blank" action="'+fa2+'">';
       for(var i=0;i<JSON.parse(decodeURIComponent(pn2)).length;i++)
       {
         var n = JSON.parse(decodeURIComponent(pn2))[i];
         //var n2 = decodeURIComponent(n);
         var v = '';
-        rtn += '<div class="subbodydiv"><label for="'+n+'">'+n+'</label><textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
+        rtn += '<div class="subbodydiv"><label for="'+n+'">'+n+'</label><br/>&nbsp;<br/>';
+        rtn += '<textarea name="'+n+'" id="'+n+'">'+v+'</textarea></div>';
       } 
-      rtn += "</form>";
+      rtn += "<br/>&nbsp;<br/><input type="submit" value="add row"/></form>";
       
     }
     
